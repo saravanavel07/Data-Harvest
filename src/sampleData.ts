@@ -1,0 +1,51 @@
+export const DEMO_SALES_CSV = `Transaction_ID,Date,Product_Name,Category,Region,Quantity,Unit_Price,Unit_Cost,Sales_Channel,Customer_Segment
+TXN-1001,2026-01-05,DataHarvest Enterprise,Software,North America,12,1200.00,320.00,Direct Sales,Enterprise
+TXN-1002,2026-01-07,Cloud Sync Node,Infrastructure,Europe,45,180.00,65.00,Online,Mid-Market
+TXN-1003,2026-01-10,Predictive Engine Pro,Software,Asia Pacific,8,2500.00,600.00,Partner,Enterprise
+TXN-1004,2026-01-12,Edge Gateway Hub,Hardware,North America,25,450.00,190.00,Direct Sales,SMB
+TXN-1005,2026-01-15,DataHarvest Team,Software,Latin America,30,350.00,90.00,Online,SMB
+TXN-1006,2026-01-18,Stream Analyzer,Software,Europe,15,950.00,280.00,Direct Sales,Mid-Market
+TXN-1007,2026-01-20,Warehouse Connector,Infrastructure,North America,20,600.00,150.00,Online,Enterprise
+TXN-1008,2026-01-24,Edge Gateway Hub,Hardware,Europe,18,450.00,190.00,Partner,Mid-Market
+TXN-1009,2026-01-28,DataHarvest Enterprise,Software,Asia Pacific,10,1200.00,320.00,Direct Sales,Enterprise
+TXN-1010,2026-01-31,Cloud Sync Node,Infrastructure,North America,50,180.00,65.00,Online,SMB
+TXN-1011,2026-02-03,Predictive Engine Pro,Software,North America,14,2500.00,600.00,Direct Sales,Enterprise
+TXN-1012,2026-02-06,DataHarvest Team,Software,Europe,35,350.00,90.00,Online,SMB
+TXN-1013,2026-02-09,Edge Gateway Hub,Hardware,Asia Pacific,22,450.00,190.00,Partner,Mid-Market
+TXN-1014,2026-02-12,Warehouse Connector,Infrastructure,Europe,16,600.00,150.00,Direct Sales,Enterprise
+TXN-1015,2026-02-16,Stream Analyzer,Software,North America,22,950.00,280.00,Direct Sales,Enterprise
+TXN-1016,2026-02-19,Cloud Sync Node,Infrastructure,Latin America,38,180.00,65.00,Online,SMB
+TXN-1017,2026-02-23,DataHarvest Enterprise,Software,Europe,15,1200.00,320.00,Direct Sales,Enterprise
+TXN-1018,2026-02-26,Edge Gateway Hub,Hardware,North America,30,450.00,190.00,Online,SMB
+TXN-1019,2026-03-02,Predictive Engine Pro,Software,Europe,11,2500.00,600.00,Partner,Enterprise
+TXN-1020,2026-03-05,DataHarvest Team,Software,Asia Pacific,40,350.00,90.00,Online,Mid-Market
+TXN-1021,2026-03-08,Cloud Sync Node,Infrastructure,North America,60,180.00,65.00,Online,Mid-Market
+TXN-1022,2026-03-12,Stream Analyzer,Software,Latin America,12,950.00,280.00,Direct Sales,SMB
+TXN-1023,2026-03-15,DataHarvest Enterprise,Software,North America,18,1200.00,320.00,Direct Sales,Enterprise
+TXN-1024,2026-03-18,Warehouse Connector,Infrastructure,Asia Pacific,24,600.00,150.00,Partner,Enterprise
+TXN-1025,2026-03-22,Edge Gateway Hub,Hardware,Europe,26,450.00,190.00,Direct Sales,Mid-Market
+TXN-1026,2026-03-26,Predictive Engine Pro,Software,North America,16,2500.00,600.00,Direct Sales,Enterprise
+TXN-1027,2026-03-29,DataHarvest Team,Software,Europe,42,350.00,90.00,Online,SMB
+TXN-1028,2026-04-02,Cloud Sync Node,Infrastructure,Europe,52,180.00,65.00,Online,Mid-Market
+TXN-1029,2026-04-05,DataHarvest Enterprise,Software,Asia Pacific,14,1200.00,320.00,Direct Sales,Enterprise
+TXN-1030,2026-04-09,Edge Gateway Hub,Hardware,Latin America,19,450.00,190.00,Partner,SMB
+TXN-1031,2026-04-12,Stream Analyzer,Software,Europe,18,950.00,280.00,Direct Sales,Enterprise
+TXN-1032,2026-04-16,Warehouse Connector,Infrastructure,North America,28,600.00,150.00,Online,Enterprise
+TXN-1033,2026-04-20,Predictive Engine Pro,Software,Latin America,9,2500.00,600.00,Direct Sales,Enterprise
+TXN-1034,2026-04-24,DataHarvest Team,Software,North America,48,350.00,90.00,Online,Mid-Market
+TXN-1035,2026-04-28,Edge Gateway Hub,Hardware,North America,32,450.00,190.00,Direct Sales,SMB
+TXN-1036,2026-05-02,DataHarvest Enterprise,Software,Europe,20,1200.00,320.00,Partner,Enterprise
+TXN-1037,2026-05-06,Cloud Sync Node,Infrastructure,Asia Pacific,58,180.00,65.00,Online,Mid-Market
+TXN-1038,2026-05-10,Predictive Engine Pro,Software,North America,18,2500.00,600.00,Direct Sales,Enterprise
+TXN-1039,2026-05-15,Stream Analyzer,Software,Asia Pacific,20,950.00,280.00,Direct Sales,Mid-Market
+TXN-1040,2026-05-19,Warehouse Connector,Infrastructure,Europe,22,600.00,150.00,Online,Enterprise
+TXN-1041,2026-05-23,DataHarvest Team,Software,Latin America,36,350.00,90.00,Online,SMB
+TXN-1042,2026-05-27,Edge Gateway Hub,Hardware,Europe,25,450.00,190.00,Partner,Mid-Market
+TXN-1043,2026-06-01,DataHarvest Enterprise,Software,North America,22,1200.00,320.00,Direct Sales,Enterprise
+TXN-1044,2026-06-05,Cloud Sync Node,Infrastructure,North America,65,180.00,65.00,Online,Mid-Market
+TXN-1045,2026-06-10,Predictive Engine Pro,Software,Europe,15,2500.00,600.00,Partner,Enterprise
+TXN-1046,2026-06-14,Edge Gateway Hub,Hardware,Asia Pacific,28,450.00,190.00,Direct Sales,SMB
+TXN-1047,2026-06-18,Stream Analyzer,Software,North America,25,950.00,280.00,Direct Sales,Enterprise
+TXN-1048,2026-06-22,Warehouse Connector,Infrastructure,Latin America,18,600.00,150.00,Online,SMB
+TXN-1049,2026-06-26,DataHarvest Team,Software,Europe,50,350.00,90.00,Online,Mid-Market
+TXN-1050,2026-06-30,Predictive Engine Pro,Software,Asia Pacific,12,2500.00,600.00,Direct Sales,Enterprise`;

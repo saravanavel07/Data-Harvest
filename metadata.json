@@ -1,0 +1,6 @@
+{
+  "name": "DataHarvest",
+  "description": "Intelligent AI data analytics platform. Turn data into decisions with conversational analysis, verified metrics, SQL exploration, and RAG knowledge retrieval.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

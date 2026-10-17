@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-forest-primary: #174D32;
+  --color-forest-deep: #103B29;
+  --color-leaf: #72C84A;
+  --color-leaf-bright: #A5E86A;
+  --color-mint-soft: #E8F5E9;
+  --color-surface-pale: #F4F8F1;
+  --color-canvas: #FAFBF7;
+  --color-text-main: #202820;
+  --color-text-secondary: #657267;
+  --color-border-subtle: #DCE6DA;
+  --color-status-success: #26834A;
+  --color-status-warning: #A96C17;
+  --color-status-error: #C43D3D;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAFBF7;
+  color: #202820;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for tables and code */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #DCE6DA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A5E86A;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(114, 200, 74, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(165, 232, 106, 0.45);
+  }
+}
+
+.logo-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
