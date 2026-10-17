@@ -1,227 +1,204 @@
-# DataHarvest — Intelligent AI Data Analytics Platform
+# DataHarvest
 
-> **“Turn Data into Decisions.”**
+DataHarvest is an AI-powered analytics workspace built for turning raw business data into actionable insight. It combines a modern React interface, deterministic KPI calculations, SQL analysis, and AI-assisted conversations to help users explore datasets, ask questions in plain English, and validate results with transparent reasoning.
 
-DataHarvest is a modern, mathematically rigorous AI-powered data analytics web application. It bridges the gap between natural language inquiries, automated business intelligence calculations, SQL exploration, and grounded Retrieval-Augmented Generation (RAG).
+Built for teams that need fast analysis without sacrificing trust, DataHarvest focuses on grounded metrics, read-only data workflows, and clear explanations behind every recommendation.
 
-Unlike generic AI wrappers that hallucinate calculations or invent numbers, DataHarvest enforces **mathematical transparency and determinism**: metrics (Revenue, Profit, Margins, Outliers, Aggregations) are computed directly from actual underlying records, validated before response generation, and presented alongside interactive Plotly charts, expandable SQL code, and verifiable citations.
+## Why DataHarvest?
 
----
+- Natural-language analytics with dataset-aware AI responses
+- Reliable, formula-driven KPI calculations instead of guesswork
+- CSV/XLSX ingestion with automated quality checks
+- SQL studio for read-only exploration and reporting
+- Knowledge-base grounding for policy and operational context
+- Lightweight full-stack app with no heavy backend setup required
 
-## 🌟 Key Features
+## Core Features
 
-1. **Interactive AI Analyst Chatbot**
-   - Natural language conversations with contextual awareness of active dataset schemas and verified numerical metrics.
-   - Dual-engine architecture: Powered by **Google Gemini 3.8 Flash** with an offline deterministic fallback.
-   - Structured answer format: Direct answers, step-by-step mathematical explanations, KPI cards, interactive Plotly visualizations, and expandable SQL definitions.
-   - Grounded citations linking back to business documentation and accounting rules.
+### AI Analyst
+- Ask questions in natural language about your dataset
+- Receive answers grounded in the active dataset and calculated metrics
+- Get KPI cards, suggested charts, and SQL guidance when applicable
+- Works with a live Gemini model when configured and falls back to a deterministic local engine when not
 
-2. **Reliable Analytics Engine**
-   - Ingests **CSV**, **XLSX**, and **XLS** datasets with client-side & server-side streaming parsers.
-   - Strict formula adherence:
-     - **Total Revenue:** $\sum (\text{Quantity} \times \text{Unit Price})$
-     - **Gross Profit:** $\text{Revenue} - \text{Total Cost}$
-     - **Profit Margin (%):** $(\text{Profit} / \text{Revenue}) \times 100$
-     - **Anomaly & Outlier Detection:** Interquartile Range ($IQR = Q_3 - Q_1$, threshold bounds $[Q_1 - 1.5 IQR, Q_3 + 1.5 IQR]$).
-   - Automated Data Quality Scoring (Completeness, Uniqueness, Validity, Null cell rates).
+### Data Quality & Analytics Engine
+- Upload CSV or Excel files
+- Detect missing values, duplicates, and data quality issues
+- Compute revenue, profit, margin, and trend metrics from raw records
+- Keep calculations transparent and reproducible
 
-3. **In-Memory SQL Studio & Snowflake Discovery**
-   - Write and run real SQL statements over uploaded datasets using an embedded in-memory **AlaSQL** engine.
-   - Natural language to SQL synthesis with query formatting and performance explanations.
-   - **Strict Read-Only Guardrails**: Blocks destructive DDL/DML statements (`DROP`, `DELETE`, `TRUNCATE`, `ALTER`, `UPDATE`, `INSERT`).
-   - Snowflake Data Warehouse connectivity: Connection testing, schema & table discovery, and sandbox mode with virtual sample tables.
+### SQL Studio
+- Run read-only SQL queries against uploaded and in-memory datasets
+- Generate SQL from natural language prompts
+- Prevent destructive operations with guardrails
+- Support schema inspection and warehouse-style sandbox workflows
 
-4. **RAG Knowledge Base**
-   - Pre-loaded with business standards: GAAP Revenue Recognition (ASC 606), DAMA Data Quality Dimensions, Gross vs Contribution Margin, and Snowflake Warehouse Optimization.
-   - Index user-uploaded business policies, data dictionaries, and operational documentation.
-   - BM25 & semantic term matching with exact passage citations and relevance scores.
+### Knowledge Base
+- Search internal guidance, business rules, and reference content
+- Retrieve evidence-backed passages and match them to user questions
+- Use relevant policy information to improve analysis quality
 
-5. **Automated ETL & Transformation Pipelines**
-   - Step-by-step visual DAG tracking: Ingestion $\rightarrow$ Schema Validation $\rightarrow$ Deduplication $\rightarrow$ Anomaly Filtering $\rightarrow$ KPI Aggregation $\rightarrow$ Publishing.
-   - Real-time step duration and throughput logging.
+### Data Workflows
+- Explore data in tabular views
+- Review chart summaries and KPI snapshots
+- Track history and session context for reporting and analysis reuse
 
-6. **Token Optimization & Cost Control**
-   - Real-time token tracking: prompt tokens, completion tokens, execution latency, and estimated API expenditure in USD.
-   - Bounded context design: Sends statistical summaries and compact schema metadata rather than dumping entire multi-megabyte datasets into LLM prompts.
-
-7. **Distinctive Visual Design & Ambient Motion**
-   - Forest Green (`#174D32`, `#103B29`), Leaf Green (`#72C84A`), Bright Green (`#A5E86A`), and Mint (`#E8F5E9`) palette.
-   - Low-CPU ambient particle network representing floating data nodes with dynamic connections.
-   - Fully compliant with `prefers-reduced-motion` and automatic pause when page is hidden.
-
----
-
-## 🏛 Architecture Diagram
+## Architecture Overview
 
 ```mermaid
 flowchart TD
-    subgraph Client [DataHarvest Web Client]
-        UI[Responsive Workspace UI]
-        Chat[AI Analyst Chatbot]
-        Explorer[Data Explorer & Grid]
-        SQL[SQL Studio & AlaSQL Sandbox]
-        Charts[Plotly Visualizations]
-        Particles[Ambient Particle Canvas]
-    end
+    UI[React + TypeScript Frontend] --> Chat[AI Analyst]
+    UI --> Explorer[Data Explorer]
+    UI --> SQL[SQL Studio]
+    UI --> Dash[Overview Dashboard]
 
-    subgraph AnalyticsEngine [Deterministic Engine]
-        Parser[CSV & Excel Stream Parser]
-        Validator[Quality & Anomaly Audit]
-        KPIs[Exact Formula Calculator]
-        RAG[BM25 & Vector Knowledge Base]
-    end
-
-    subgraph Server [Full-Stack Server tsx/express]
-        API[Express API Proxy /api/*]
-        GenAI[@google/genai SDK]
-        Safety[SQL Security & Read-Only Guardrails]
-        SnowflakeConn[Snowflake Warehouse Connector]
-    end
-
-    subgraph External [AI & Warehouse Backends]
-        GeminiFlash[Gemini 3.8 Flash API]
-        Snowflake[Snowflake Cloud Data Warehouse]
-    end
-
-    UI --> Chat
-    UI --> Explorer
-    UI --> SQL
-    Parser --> Validator --> KPIs
-    Chat --> API
-    SQL --> Safety
-    API --> GenAI --> GeminiFlash
-    API --> SnowflakeConn --> Snowflake
-    KPIs --> Chat
+    Chat --> API[Express API Layer]
+    Explorer --> Engine[Analytics Engine]
+    SQL --> Engine
+    Engine --> Metrics[Verified KPI Calculations]
+    API --> Gemini[Google Gemini API]
+    API --> RAG[Knowledge Base / RAG Service]
+    Metrics --> Chat
     RAG --> Chat
 ```
 
----
+## Tech Stack
 
-## 💻 Tech Stack
+- Frontend: React 19, TypeScript, Vite, Tailwind CSS
+- Backend: Node.js, Express, TypeScript
+- AI: Google Gemini SDK
+- Data Processing: Papa Parse, XLSX, AlaSQL
+- Visualization: Plotly.js
+- Environment: dotenv
 
-- **Frontend:** React 19, TypeScript, Tailwind CSS v4, Lucide React, Plotly.js (`plotly.js-dist-min`), AlaSQL
-- **Backend:** Node.js, Express, `tsx`, `@google/genai` TypeScript SDK
-- **Data Processing:** PapaParse, SheetJS (`xlsx`), AlaSQL
-- **Storage & Metadata:** In-memory vector index, local session repository, optional Snowflake Cloud DW
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```text
-dataharvest/
-├── sample_data/
-│   └── sales_demo.csv          # 50-row deterministic retail dataset
+Data-Harvest/
 ├── src/
 │   ├── components/
-│   │   ├── AIAnalyst.tsx       # Conversational analytics interface
-│   │   ├── DataChart.tsx       # Interactive Plotly chart engine
-│   │   ├── DataExplorer.tsx    # Tabular preview, schema & quality audit
-│   │   ├── DataPipelines.tsx   # Visual DAG runner & ETL execution
-│   │   ├── HelpModal.tsx       # Formula standards & documentation modal
-│   │   ├── KnowledgeBase.tsx   # RAG indexer & evidence retrieval
-│   │   ├── Overview.tsx        # Dashboard home with KPIs & top products
-│   │   ├── ParticleBackground.tsx # Ambient low-CPU data network
-│   │   ├── QueryHistory.tsx    # Executed SQL audit log
-│   │   ├── Settings.tsx        # Token consumption & Snowflake config
-│   │   ├── Sidebar.tsx         # Brand logo & navigation drawer
-│   │   ├── TopNav.tsx          # Workspace breadcrumbs & live alerts
-│   │   └── UploadData.tsx      # CSV/XLSX dropzone & validator
 │   ├── services/
-│   │   ├── analyticsEngine.ts  # Deterministic formulas & anomaly tests
-│   │   ├── ragService.ts       # Document chunking & citation extraction
-│   │   └── sqlEngine.ts        # In-memory SQL execution & security
-│   ├── sampleData.ts           # Embedded offline fallback dataset
-│   ├── types/index.ts          # Core TypeScript definitions
-│   ├── App.tsx                 # Root application state & router
-│   ├── index.css               # Tailwind v4 theme & token definitions
-│   └── main.tsx                # Client bootstrap
-├── .env.example                # Environment variable templates
-├── index.html                  # HTML entry point with Plus Jakarta Sans
-├── metadata.json               # AI Studio applet metadata
-├── package.json                # Dependencies and full-stack scripts
-├── server.ts                   # Express server with Vite middleware & Gemini API
+│   ├── types/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── sampleData.ts
+│   └── index.css
+├── sample_data/
+│   └── sales_demo.csv
+├── index.html
+├── metadata.json
+├── package.json
+├── server.ts
 ├── tsconfig.json
-└── vite.config.ts
+├── vite.config.ts
+├── bun.lock
+├── README.md
+└── .env.example
 ```
 
----
+## Getting Started
 
-## 🚀 Getting Started
+### Prerequisites
 
-### 1. Installation
+- Node.js 18+
+- npm or Bun
 
-Ensure Node.js 18+ is installed.
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Environment Variables
-
-Create a `.env` file from `.env.example`:
+or
 
 ```bash
-cp .env.example .env
+bun install
 ```
 
-Populate the variables:
+### 2. Configure environment variables
+
+Create a `.env` file in the project root:
+
 ```env
-# Required for live Gemini calls (in AI Studio, injected automatically)
-GEMINI_API_KEY="your-gemini-api-key"
+GEMINI_API_KEY=your_gemini_api_key
+PORT=3000
 
-# Optional Snowflake Data Warehouse configuration
-SNOWFLAKE_ACCOUNT=""
-SNOWFLAKE_USER=""
-SNOWFLAKE_PASSWORD=""
-SNOWFLAKE_WAREHOUSE="COMPUTE_WH"
-SNOWFLAKE_DATABASE="DATAHARVEST_ANALYTICS"
-SNOWFLAKE_SCHEMA="PUBLIC"
+SNOWFLAKE_ACCOUNT=
+SNOWFLAKE_USER=
+SNOWFLAKE_PASSWORD=
+SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+SNOWFLAKE_DATABASE=DATAHARVEST_ANALYTICS
+SNOWFLAKE_SCHEMA=PUBLIC
 ```
 
-*Note:* If `GEMINI_API_KEY` is not provided, DataHarvest automatically operates in **Deterministic Local Engine mode**, executing all mathematical calculations, AlaSQL queries, and RAG searches without error.
+Note: If `GEMINI_API_KEY` is not set, the app still works in a deterministic offline mode using local analytics logic.
 
-### 3. Development Server
-
-Run the development server on port 3000:
+### 3. Run the app
 
 ```bash
 npm run dev
 ```
 
-Visit `http://localhost:3000` in your browser.
+The application will be available at:
 
-### 4. Production Build
+```text
+http://localhost:3000
+```
+
+### 4. Production build
 
 ```bash
 npm run build
 npm start
 ```
 
+## Available Scripts
+
+```json
+{
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build",
+    "start": "tsx server.ts",
+    "preview": "vite preview",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit"
+  }
+}
+```
+
+## Security & Guardrails
+
+- Read-only SQL validation to block destructive statements
+- Server-side API handling prevents exposing keys in client code
+- KPI and business logic are calculated using local deterministic mechanisms
+- AI outputs are designed to be explainable and grounded in dataset facts
+
+## Use Cases
+
+- Sales and revenue analysis
+- Product performance reporting
+- Data quality auditing
+- BI workflow prototyping
+- Internal analytics exploration for non-technical teams
+
+## Contributing
+
+Contributions are welcome. If you want to improve the product, extend the analytics engine, or add new data workflows:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your improvements
+4. Submit a pull request with a clear description
+
+## License
+
+This project is currently distributed under the repository's default license terms. Review the repository license file before production deployment or redistribution.
+
+## Contact
+
+For questions, ideas, or collaboration, connect with the project maintainer via the GitHub repository.
+
 ---
 
-## 🔒 Security & Guardrails
-
-- **Read-Only Database Enforcement:** Any SQL query executed through the SQL Studio is scanned for dangerous keywords (`DROP`, `DELETE`, `TRUNCATE`, `ALTER`, `UPDATE`, `INSERT`). Only pure projection and aggregation queries are allowed.
-- **Server-Side API Keys:** The Gemini API key is never exposed to the client bundle. All external LLM calls pass through server routes in `server.ts`.
-- **Anti-Hallucination Grounding:** Mathematical aggregations are never computed mentally by the LLM. The system feeds calculated figures into the prompt and instructs the model to explain the verified values.
-
----
-
-## 🧪 Testing Verified Outputs
-
-1. **Revenue Calculation:**
-   Using the built-in `sales_demo.csv` (50 transactions across 6 months):
-   - Total Revenue = $\$1,008,950.00$
-   - Total Profit = $\$752,990.00$
-   - Gross Margin = $74.63\%$
-2. **Top Product:**
-   `Predictive Engine Pro` ($127$ units, $\$317,500$ revenue).
-3. **Data Quality Score:**
-   $100/100$ (Zero missing cells, zero duplicate transactions).
-
----
-
-## 📄 License
-
-MIT License. Built for intelligent data-driven decisions.
+Built to help teams move from raw data to clear decisions with confidence.
