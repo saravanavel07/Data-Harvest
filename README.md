@@ -1,128 +1,154 @@
+<div align="center">
+
 # DataHarvest
 
-DataHarvest is an AI-powered analytics workspace built for turning raw business data into actionable insight. It combines a modern React interface, deterministic KPI calculations, SQL analysis, and AI-assisted conversations to help users explore datasets, ask questions in plain English, and validate results with transparent reasoning.
+### Turn data into decisions.
 
-Built for teams that need fast analysis without sacrificing trust, DataHarvest focuses on grounded metrics, read-only data workflows, and clear explanations behind every recommendation.
+[![TypeScript](https://img.shields.io/badge/TypeScript-7%2B-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
+[![Express](https://img.shields.io/badge/Node.js%20%2B%20Express-4-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
+[![License](https://img.shields.io/badge/License-See%20repository-lightgrey)](LICENSE)
 
-## Why DataHarvest?
+<br />
 
-- Natural-language analytics with dataset-aware AI responses
-- Reliable, formula-driven KPI calculations instead of guesswork
-- CSV/XLSX ingestion with automated quality checks
-- SQL studio for read-only exploration and reporting
-- Knowledge-base grounding for policy and operational context
-- Lightweight full-stack app with no heavy backend setup required
+<a href="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+in+plain+language;From+raw+files+to+clear+insights;Analyze.+Visualize.+Decide.">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+in+plain+language;From+raw+files+to+clear+insights;Analyze.+Visualize.+Decide." alt="Animated DataHarvest project tagline" />
+</a>
 
-## Core Features
+**A full-stack analytics workspace for exploring datasets, checking data quality, visualizing KPIs, and asking data questions with AI assistance.**
 
-### AI Analyst
-- Ask questions in natural language about your dataset
-- Receive answers grounded in the active dataset and calculated metrics
-- Get KPI cards, suggested charts, and SQL guidance when applicable
-- Works with a live Gemini model when configured and falls back to a deterministic local engine when not
+[Explore the repository](https://github.com/saravanavel07/Data-Harvest) · [Report an issue](https://github.com/saravanavel07/Data-Harvest/issues)
 
-### Data Quality & Analytics Engine
-- Upload CSV or Excel files
-- Detect missing values, duplicates, and data quality issues
-- Compute revenue, profit, margin, and trend metrics from raw records
-- Keep calculations transparent and reproducible
+</div>
 
-### SQL Studio
-- Run read-only SQL queries against uploaded and in-memory datasets
-- Generate SQL from natural language prompts
-- Prevent destructive operations with guardrails
-- Support schema inspection and warehouse-style sandbox workflows
+---
 
-### Knowledge Base
-- Search internal guidance, business rules, and reference content
-- Retrieve evidence-backed passages and match them to user questions
-- Use relevant policy information to improve analysis quality
+## About
 
-### Data Workflows
-- Explore data in tabular views
-- Review chart summaries and KPI snapshots
-- Track history and session context for reporting and analysis reuse
+DataHarvest helps turn business data into useful, understandable analysis. Import CSV or Excel files, inspect records, review calculated metrics, explore charts, and use the AI Analyst or SQL tools to investigate your data. When an AI API key is unavailable, the application can still provide deterministic, locally computed analytical responses.
 
-## Architecture Overview
+The interface includes a subtle particle-network background and uses Motion-powered transitions to add movement to the app experience. The animated heading above adds a live typing effect to this README when viewed on GitHub (it loads from an external SVG service).
+
+## Features
+
+- **Overview dashboard** — review dataset summaries and key performance indicators.
+- **Data upload and exploration** — load CSV/XLSX data and inspect it in a tabular view.
+- **Analytics and data quality** — calculate revenue, cost, profit, margin, trends, missing-value rates, duplicates, and quality scores.
+- **AI Analyst** — ask natural-language questions with dataset context, calculated metrics, and relevant knowledge-base evidence.
+- **Charts and visualizations** — explore category and time-series results with Plotly.
+- **SQL Studio** — generate, validate, and run read-only analytical queries against the active dataset; includes Snowflake-oriented workflows and a demo sandbox.
+- **Knowledge Base** — retrieve relevant reference material to ground answers.
+- **Query history and settings** — revisit queries and review AI usage statistics.
+- **Demo-ready experience** — a sample sales dataset is loaded to help explore the app.
+
+## Application components
+
+| Area | Components / services | Purpose |
+| --- | --- | --- |
+| Navigation and layout | `Sidebar`, `TopNav`, `ParticleBackground`, `HelpModal` | App navigation, responsive layout, visual background, and help dialog. |
+| Analytics workspace | `Overview`, `DataExplorer`, `UploadData`, `DataPipelines` | Dashboard, data browsing, file import, and pipeline views. |
+| AI and knowledge | `AIAnalyst`, `KnowledgeBase`, `RagService` | Conversational analysis and retrieval of relevant knowledge-base content. |
+| SQL and reporting | `SqlSnowflake`, `DataChart`, `QueryHistory` | Query workflows, charts, and saved query history. |
+| Preferences | `Settings` | Usage information and data reset controls. |
+| Core logic | `AnalyticsEngine`, `sqlEngine`, shared TypeScript types | Data parsing, KPI calculations, SQL support, and typed application models. |
+| Server/API | `server.ts` (Express) | Serves the app and provides health, AI chat, SQL-assistance, and Snowflake test endpoints. |
+
+## Technology stack and skills demonstrated
+
+**Languages and frontend**
+- TypeScript, React 19, React DOM, HTML, and CSS
+- Vite for development and production builds
+- Tailwind CSS for utility-first styling
+- Motion for interface animations and Lucide React for icons
+
+**Backend and AI**
+- Node.js, Express, and REST-style API endpoints
+- Google Gemini SDK (`@google/genai`) for AI-assisted analysis
+- Environment-based configuration with `dotenv`
+- Deterministic fallback responses when Gemini is not configured or unavailable
+
+**Data and visualization**
+- Papa Parse for CSV parsing
+- SheetJS (`xlsx`) for spreadsheet support
+- AlaSQL for in-memory SQL querying
+- Plotly.js for charts and data visualization
+- Analytics, KPI calculations, and data-quality checks
+
+**Engineering skills reflected in the project**
+- Full-stack TypeScript application development
+- Component-based UI design and React state management
+- API integration and server-side secret configuration
+- File ingestion and data transformation
+- SQL generation and read-only query guardrails
+- Retrieval-augmented context for more grounded AI responses
+- Responsive interface design, visualization, and application architecture
+
+## Architecture
 
 ```mermaid
-flowchart TD
-    UI[React + TypeScript Frontend] --> Chat[AI Analyst]
-    UI --> Explorer[Data Explorer]
+flowchart LR
+    User[User] --> UI[React + TypeScript UI]
+    UI --> Upload[CSV / Excel upload]
+    Upload --> Analytics[Analytics Engine]
+    UI --> Analyst[AI Analyst]
     UI --> SQL[SQL Studio]
-    UI --> Dash[Overview Dashboard]
-
-    Chat --> API[Express API Layer]
-    Explorer --> Engine[Analytics Engine]
-    SQL --> Engine
-    Engine --> Metrics[Verified KPI Calculations]
-    API --> Gemini[Google Gemini API]
-    API --> RAG[Knowledge Base / RAG Service]
-    Metrics --> Chat
-    RAG --> Chat
+    UI --> KB[Knowledge Base]
+    Analytics --> KPIs[Verified metrics and data quality]
+    Analyst --> API[Express API]
+    SQL --> Query[AlaSQL / read-only query workflow]
+    API --> Gemini[Google Gemini API, when configured]
+    KB --> Analyst
+    KPIs --> Analyst
+    Query --> Charts[Plotly visualizations]
 ```
 
-## Tech Stack
-
-- Frontend: React 19, TypeScript, Vite, Tailwind CSS
-- Backend: Node.js, Express, TypeScript
-- AI: Google Gemini SDK
-- Data Processing: Papa Parse, XLSX, AlaSQL
-- Visualization: Plotly.js
-- Environment: dotenv
-
-## Project Structure
+## Project structure
 
 ```text
 Data-Harvest/
 ├── src/
-│   ├── components/
-│   ├── services/
-│   ├── types/
-│   ├── App.tsx
-│   ├── main.tsx
-│   ├── sampleData.ts
-│   └── index.css
-├── sample_data/
-│   └── sales_demo.csv
+│   ├── components/       # React views and reusable UI components
+│   ├── services/         # Analytics, SQL, and knowledge retrieval logic
+│   ├── types/            # Shared TypeScript types
+│   ├── App.tsx           # App state, navigation, and view composition
+│   ├── sampleData.ts     # Demo dataset
+│   └── index.css         # Global styles
+├── sample_data/          # Sample data files
+├── server.ts             # Express API and development/production server
 ├── index.html
-├── metadata.json
 ├── package.json
-├── server.ts
-├── tsconfig.json
 ├── vite.config.ts
-├── bun.lock
-├── README.md
-└── .env.example
+└── README.md
 ```
 
-## Getting Started
+## Get started
 
-### Prerequisites
+### Requirements
 
-- Node.js 18+
+- Node.js 18 or later
 - npm or Bun
 
-### 1. Install dependencies
+### Install and run
 
 ```bash
+git clone https://github.com/saravanavel07/Data-Harvest.git
+cd Data-Harvest
 npm install
+npm run dev
 ```
 
-or
+Open the local URL printed by the development server (the default port is `3000`). You can also install dependencies with `bun install` and run the project using its npm scripts through Bun.
 
-```bash
-bun install
-```
+### Optional environment configuration
 
-### 2. Configure environment variables
-
-Create a `.env` file in the project root:
+Create a `.env` file in the project root to enable the Gemini integration and configure the server:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key
 PORT=3000
 
+# Optional Snowflake settings
 SNOWFLAKE_ACCOUNT=
 SNOWFLAKE_USER=
 SNOWFLAKE_PASSWORD=
@@ -131,74 +157,36 @@ SNOWFLAKE_DATABASE=DATAHARVEST_ANALYTICS
 SNOWFLAKE_SCHEMA=PUBLIC
 ```
 
-Note: If `GEMINI_API_KEY` is not set, the app still works in a deterministic offline mode using local analytics logic.
+Without `GEMINI_API_KEY`, local deterministic analytics remain available. Keep secrets in `.env`; do not commit credentials.
 
-### 3. Run the app
+### Available scripts
 
-```bash
-npm run dev
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run build` | Create the production frontend build. |
+| `npm start` | Start the application server. |
+| `npm run preview` | Preview the Vite production build. |
+| `npm run lint` | Run TypeScript type checking (`tsc --noEmit`). |
 
-The application will be available at:
+## Security notes
 
-```text
-http://localhost:3000
-```
-
-### 4. Production build
-
-```bash
-npm run build
-npm start
-```
-
-## Available Scripts
-
-```json
-{
-  "scripts": {
-    "dev": "tsx server.ts",
-    "build": "vite build",
-    "start": "tsx server.ts",
-    "preview": "vite preview",
-    "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
-  }
-}
-```
-
-## Security & Guardrails
-
-- Read-only SQL validation to block destructive statements
-- Server-side API handling prevents exposing keys in client code
-- KPI and business logic are calculated using local deterministic mechanisms
-- AI outputs are designed to be explainable and grounded in dataset facts
-
-## Use Cases
-
-- Sales and revenue analysis
-- Product performance reporting
-- Data quality auditing
-- BI workflow prototyping
-- Internal analytics exploration for non-technical teams
+- Gemini credentials are read on the server and should not be exposed in client code.
+- SQL workflows are intended for read-only analytical queries and include destructive-operation checks. Review and test guardrails before connecting this application to production data sources.
+- The Snowflake test endpoint currently includes demo/sandbox behavior. Configure and verify a real Snowflake driver and connection before treating it as a live warehouse integration.
 
 ## Contributing
 
-Contributions are welcome. If you want to improve the product, extend the analytics engine, or add new data workflows:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your improvements
-4. Submit a pull request with a clear description
+Contributions and suggestions are welcome. Open an issue to discuss a change, or submit a pull request with a clear description of the improvement.
 
 ## License
 
-This project is currently distributed under the repository's default license terms. Review the repository license file before production deployment or redistribution.
-
-## Contact
-
-For questions, ideas, or collaboration, connect with the project maintainer via the GitHub repository.
+No `LICENSE` file was present when this README was updated. Add a license file to clarify reuse and distribution terms.
 
 ---
 
-Built to help teams move from raw data to clear decisions with confidence.
+<div align="center">
+
+**DataHarvest — Turn data into decisions.**
+
+</div>
