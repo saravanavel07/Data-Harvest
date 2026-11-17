@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 190" role="img" aria-labelledby="title desc">
+  <title id="title">DataHarvest animated particle network</title>
+  <desc id="desc">Tiny green particles move along curved paths between glowing network nodes.</desc>
+  <defs>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#2e7d5b" stop-opacity=".08" />
+      <stop offset=".5" stop-color="#36b37e" stop-opacity=".5" />
+      <stop offset="1" stop-color="#2e7d5b" stop-opacity=".08" />
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#61e6a5" stop-opacity=".42" />
+      <stop offset="1" stop-color="#61e6a5" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft-glow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="190" rx="18" fill="#071710" />
+  <g fill="none" stroke="url(#line)" stroke-width="1.2">
+    <path d="M40 118 C190 15 275 168 420 80 S665 18 790 95 1015 165 1160 48" />
+    <path d="M45 42 C175 165 300 18 440 118 S665 176 790 58 1020 15 1155 134" />
+    <path d="M175 178 C260 90 325 55 420 80 S585 144 700 40 905 50 1015 165" />
+    <path d="M80 80 C225 82 275 168 440 118 S660 28 790 95 950 112 1120 80" />
+  </g>
+  <g fill="url(#glow)">
+    <circle cx="175" cy="80" r="29" /><circle cx="420" cy="80" r="34" />
+    <circle cx="700" cy="40" r="30" /><circle cx="790" cy="95" r="34" />
+    <circle cx="1015" cy="165" r="29" />
+  </g>
+  <g fill="#76f0b2" filter="url(#soft-glow)">
+    <circle cx="175" cy="80" r="2.4" /><circle cx="420" cy="80" r="2.8" />
+    <circle cx="700" cy="40" r="2.4" /><circle cx="790" cy="95" r="2.8" />
+    <circle cx="1015" cy="165" r="2.4" />
+  </g>
+  <g fill="#a2ffd0" filter="url(#soft-glow)">
+    <circle r="2.5"><animateMotion dur="5s" repeatCount="indefinite" path="M40 118 C190 15 275 168 420 80 S665 18 790 95 1015 165 1160 48" /></circle>
+    <circle r="2"><animateMotion dur="7s" begin="-2s" repeatCount="indefinite" path="M45 42 C175 165 300 18 440 118 S665 176 790 58 1020 15 1155 134" /></circle>
+    <circle r="1.8"><animateMotion dur="6s" begin="-3s" repeatCount="indefinite" path="M175 178 C260 90 325 55 420 80 S585 144 700 40 905 50 1015 165" /></circle>
+    <circle r="1.7"><animateMotion dur="8s" begin="-5s" repeatCount="indefinite" path="M80 80 C225 82 275 168 440 118 S660 28 790 95 950 112 1120 80" /></circle>
+    <circle r="1.5"><animateMotion dur="4.5s" begin="-1s" repeatCount="indefinite" path="M1160 48 C1015 165 790 95 700 40 S440 118 420 80 175 15 40 118" /></circle>
+  </g>
+  <g fill="#9cefc2" opacity=".55">
+    <circle cx="92" cy="63" r="1" /><circle cx="260" cy="120" r="1.3" />
+    <circle cx="335" cy="40" r="1" /><circle cx="560" cy="105" r="1" />
+    <circle cx="620" cy="55" r="1.2" /><circle cx="910" cy="78" r="1" />
+    <circle cx="1080" cy="105" r="1.3" /><circle cx="1125" cy="30" r="1" />
+  </g>
+</svg>

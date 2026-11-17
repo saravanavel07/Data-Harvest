@@ -8,13 +8,18 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=20232A)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev/)
 [![Express](https://img.shields.io/badge/Node.js%20%2B%20Express-4-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
-[![License](https://img.shields.io/badge/License-See%20repository-lightgrey)](LICENSE)
 
 <br />
 
-<a href="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+in+plain+language;From+raw+files+to+clear+insights;Analyze.+Visualize.+Decide.">
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+in+plain+language;From+raw+files+to+clear+insights;Analyze.+Visualize.+Decide." alt="Animated DataHarvest project tagline" />
+<a href="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+and+discover+insights;Turn+data+into+decisions" target="_blank">
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=20&duration=2800&pause=900&color=2E7D5B&center=true&vCenter=true&width=700&lines=Explore+your+data+with+confidence;Ask+questions+and+discover+insights;Turn+data+into+decisions" alt="Animated text: Explore your data with confidence, ask questions and discover insights, and turn data into decisions" />
 </a>
+
+<br />
+
+<img src="assets/readme-particles.svg" alt="Animated green particles moving across a connected data network" width="100%" />
+
+<br />
 
 **A full-stack analytics workspace for exploring datasets, checking data quality, visualizing KPIs, and asking data questions with AI assistance.**
 
@@ -26,9 +31,9 @@
 
 ## About
 
-DataHarvest helps turn business data into useful, understandable analysis. Import CSV or Excel files, inspect records, review calculated metrics, explore charts, and use the AI Analyst or SQL tools to investigate your data. When an AI API key is unavailable, the application can still provide deterministic, locally computed analytical responses.
+DataHarvest helps turn business data into useful, understandable analysis. Import CSV or Excel files, inspect records, review calculated metrics, explore charts, and use the AI Analyst or SQL tool to investigate your data.
 
-The interface includes a subtle particle-network background and uses Motion-powered transitions to add movement to the app experience. The animated heading above adds a live typing effect to this README when viewed on GitHub (it loads from an external SVG service).
+The app's visual experience includes a subtle particle-network background and Motion-powered interface transitions. The animated heading and particle illustration above bring that live motion into this README, too.
 
 ## Features
 
@@ -107,15 +112,17 @@ flowchart LR
 
 ```text
 Data-Harvest/
+├── assets/
+│   └── readme-particles.svg  # Animated README particle illustration
 ├── src/
-│   ├── components/       # React views and reusable UI components
-│   ├── services/         # Analytics, SQL, and knowledge retrieval logic
-│   ├── types/            # Shared TypeScript types
-│   ├── App.tsx           # App state, navigation, and view composition
-│   ├── sampleData.ts     # Demo dataset
-│   └── index.css         # Global styles
-├── sample_data/          # Sample data files
-├── server.ts             # Express API and development/production server
+│   ├── components/           # React views and reusable UI components
+│   ├── services/             # Analytics, SQL, and knowledge retrieval logic
+│   ├── types/                # Shared TypeScript types
+│   ├── App.tsx               # App state, navigation, and view composition
+│   ├── sampleData.ts         # Demo dataset
+│   └── index.css             # Global styles
+├── sample_data/              # Sample data files
+├── server.ts                 # Express API and development/production server
 ├── index.html
 ├── package.json
 ├── vite.config.ts
@@ -173,15 +180,11 @@ Without `GEMINI_API_KEY`, local deterministic analytics remain available. Keep s
 
 - Gemini credentials are read on the server and should not be exposed in client code.
 - SQL workflows are intended for read-only analytical queries and include destructive-operation checks. Review and test guardrails before connecting this application to production data sources.
-- The Snowflake test endpoint currently includes demo/sandbox behavior. Configure and verify a real Snowflake driver and connection before treating it as a live warehouse integration.
+- The Snowflake test endpoint currently includes demo/sandbox behavior. Configure and verify a real Snowflake driver and connection before treating this as a live warehouse integration.
 
 ## Contributing
 
 Contributions and suggestions are welcome. Open an issue to discuss a change, or submit a pull request with a clear description of the improvement.
-
-## License
-
-No `LICENSE` file was present when this README was updated. Add a license file to clarify reuse and distribution terms.
 
 ---
 
